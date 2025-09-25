@@ -1,0 +1,25 @@
+.message-text {
+    h4+ul {
+        list-style-type: decimal;
+    }
+
+    ul li a {
+        text-decoration: none !important;
+        color: var(--saf-color-anchor-default);
+    }
+
+    ul li a::after {
+        content: "";
+        font-family: "Font Awesome 6 Pro";
+        font-weight: 900;
+        display: var(--fa-display, inline-block);
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        line-height: 1;
+        text-rendering: auto;
+        padding-left: 5px;
+        font-size: 12px;
+    }
+}

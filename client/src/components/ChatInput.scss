@@ -1,0 +1,97 @@
+@import '../assets/_on.scss';
+
+.chat-input:has(.file-upload-section) {
+  #prompt::part(control){
+    margin-bottom: 60px;
+  }
+}
+
+.chat-input:has(.selected-file) {
+  #prompt::part(control){
+    margin-bottom: 74px;
+  }
+}
+
+.chat-input {
+  display: flex;
+  flex-direction: column;
+  
+  #prompt::part(control) {
+    border-bottom-width: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  #prompt::part(control)::placeholder {
+    color: $saf-color-text-subtle;
+  }
+
+  .actions {
+    border-bottom-left-radius: $saf-border-radius-xs;
+    border-bottom-right-radius: $saf-border-radius-xs;
+    border-style: solid;
+    border-color: $saf-color-line-strong;
+    border-top-color: $saf-color-line-subtle;
+    border-width: $saf-line-width-thin;
+    display: flex;
+    margin-top: -7px;
+    padding: $saf-space-inset-squish-xs;
+    position: relative;
+    align-items: center;
+
+    #send {
+      margin-left: auto;
+    }
+  }
+
+  .file-upload-notice {
+    margin-bottom: $saf-spacing-2;
+    color: $saf-color-text-subtle;
+  }
+
+  .policy {
+    display: flex;
+    gap: $saf-spacing-2;
+    padding: $saf-spacing-2;
+
+    #shield-check-icon {
+      color: $saf-color-status-success-strong;
+    }
+
+    #open-new-window-icon {
+      padding-left: 5px
+    }
+  }
+
+  .file-section {
+    top: -4px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: $saf-space-inset-xs;
+    border-top: var(--saf-line-width-thin) solid var(--saf-color-line-subtle);
+    border-left: var(--saf-line-width-thin) solid var(--saf-color-line-strong);
+    border-right: var(--saf-line-width-thin) solid var(--saf-color-line-strong);
+
+    .file-upload-note {
+      margin-bottom: $saf-spacing-2;
+      color: $saf-color-text-subtle;
+    }
+
+  }
+
+  .file-section.uploading {
+    align-items: center;
+    justify-content: center;
+
+    .uploading-text {
+      color: $saf-color-brand-gray-400;
+    }
+  }
+
+  .file-chip{
+    .file-chip-name {
+      margin-left: 4px;
+    }
+  }
+}

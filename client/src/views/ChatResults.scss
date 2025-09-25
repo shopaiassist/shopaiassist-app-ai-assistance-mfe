@@ -1,0 +1,12 @@
+@import '../assets/_on.scss';
+
+.ai-assistance-results {
+  padding: $space-inset-xl;
+
+  empty-state.no-results {
+    margin-top: $space-inset-xxl;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+  }
+}

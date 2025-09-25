@@ -1,0 +1,44 @@
+.feedback {
+  display: flex;
+  justify-content: flex-start;
+  gap: .5rem;
+  margin-top: 20px;
+  
+  .choice {
+    display: flex;
+    gap: .2rem;
+  }
+}
+
+.thank-you-message {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.loading-icon {
+  position: relative;
+  top: 4px;
+}
+
+.feedback-comment {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 30px;
+  }
+}
+
+.feedback-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .controls {
+    display: flex;  
+    gap: .5rem;  
+  }
+}

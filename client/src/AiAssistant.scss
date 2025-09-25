@@ -1,0 +1,31 @@
+@import '../node_modules/core-styles/dist/index.css';
+@import '../node_modules/core-styles/dist/wijmo.css';
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  #ai-assistance,.ai-assistance {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+
+    .chat,.ai-assistance-results {
+      flex: 1;
+    }
+
+    .external {
+      border: 1px dashed #88f;
+    }
+  }
+}
+
+#ai-assistance-mfe {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
