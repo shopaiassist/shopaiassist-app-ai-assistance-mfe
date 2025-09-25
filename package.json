@@ -1,0 +1,112 @@
+{
+  "name": "ai-assistance-mfe",
+  "version": "1.2.0",
+  "description": "Assistance MFE",
+  "main": "server/index.ts",
+  "engines": {
+    "node": ">=20.13.x <21",
+    "npm": ">=10.5.x"
+  },
+  "scripts": {
+    "build": "cd client && npm run build && cd ..",
+    "build:prod": "cd client && npm run build:prod && cd ..",
+    "clean": "rm -rf node_modules coverage .nyc_output && cd client && npm run clean && cd ..",
+    "lint": "eslint .",
+    "lint:ci": "npm run lint -- --max-warnings 0",
+    "lint:fix": "npm run lint -- --fix",
+    "postinstall": "cd client && npm install && cd ..",
+    "prettier": "prettier \"**/*.{ts,tsx,js}\" --write --loglevel warn",
+    "setup": "npm config set engine-strict true && husky install",
+    "start:client": "cd client && npm start",
+    "start:server": "nodemon -e ts --watch server --exec \"node -r ts-node/register server/index.ts\"",
+    "start": "npx concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:prod": "node -r ts-node/register server/index.ts",
+    "test:ci": "npm run test:server:ci && npm run test:client:ci",
+    "test:client": "cd client && npm test && cd ..",
+    "test:client:ci": "cd client && npm run test:ci && cd ..",
+    "test:server": "nyc npm run test:server:run",
+    "test:server:ci": "npm run test:server:run -- --forbid-only --bail --reporter min",
+    "test:server:run": "mocha -r ts-node/register -r server/test-setup.ts 'server/src/**/*.spec.ts' --fail-zero",
+    "test": "npm run test:server && npm run test:client",
+    "create-auth-token": "node -r ts-node/register scripts/createAuthToken.ts"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "@osia/hades_core": "0.3.0",
+    "@types/compression": "^1.7.5",
+    "@types/content-disposition": "^0.5.8",
+    "@types/cookie-parser": "^1.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/express-http-proxy": "^1.6.6",
+    "@types/node": "^20.11.4",
+    "@types/request-ip": "^0.0.41",
+    "@types/xxhashjs": "^0.2.4",
+    "axios": "~1.11.0",
+    "compression": "^1.7.4",
+    "content-disposition": "^0.5.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.2",
+    "express": "~4.21.1",
+    "express-http-context": "^1.2.4",
+    "express-http-proxy": "^2.0.0",
+    "express-promise-router": "^4.1.1",
+    "helmet": "^7.1.0",
+    "jspdf": "~3.0.1",
+    "nanoid": "^3.3.7",
+    "nocache": "^4.0.0",
+    "request-ip": "^3.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "winston": "^3.11.0",
+    "xxhashjs": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/chai-http": "^4.2.0",
+    "@types/mocha": "^10.0.6",
+    "@types/sinon": "^17.0.3",
+    "@types/sinon-chai": "^3.2.12",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "chai": "^4.4.1",
+    "chai-http": "^4.4.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "mocha": "^10.2.0",
+    "nock": "^13.5.4",
+    "nodemon": "^3.0.2",
+    "nyc": "^15.1.0",
+    "prettier": "^3.2.2",
+    "pretty-quick": "^4.0.0",
+    "sinon": "^17.0.1",
+    "sinon-chai": "^3.7.0",
+    "source-map-support": "^0.5.21"
+  },
+  "nyc": {
+    "include": [
+      "server/src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*spec.ts",
+      "**/*test.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "all": true
+  }
+}
