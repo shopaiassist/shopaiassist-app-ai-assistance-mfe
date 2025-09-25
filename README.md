@@ -9,8 +9,6 @@ digital platform. Seamlessly integrated with the (https://github.com/shopaiassis
 container app, assistance-mfe enriches user interaction with AI-driven insights and conversational
 capabilities.
 
-![Map of Repositories](doc/assets/repos-map.png)
-
 This repository hosts a React-based Micro Frontend (MFE) application, designed to be integrated
 within a larger MFE architecture. The application, featuring a Node.js server backend, acts as a
 standalone unit that can be seamlessly embedded into a container application. Leveraging Webpack 5
